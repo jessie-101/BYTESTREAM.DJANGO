@@ -1,0 +1,93 @@
+{% load static %}
+{% url 'articles' as articles_url %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore ByteStream's technical publications, guides, and perspectives on technology.">
+  <title>Articles | ByteStream</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="{% url 'home' %}" aria-label="ByteStream home">Byte<span>Stream</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{{ articles_url|default:'#publications' }}" aria-current="page">Articles</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="publications" aria-labelledby="publications-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">ByteStream publications</span>
+          <h1 class="page-title" id="publications-title">Technology, thoughtfully explored.</h1>
+          <p>In-depth perspectives, practical guides, and fresh ideas for a world shaped by technology.</p>
+        </div>
+      </div>
+
+      <div class="article-grid">
+        <article class="article-card">
+          <div class="article-card-image">
+            <img src="{% static 'images/myphoto.jpg' %}" alt="Technology and artificial intelligence" loading="lazy">
+          </div>
+          <div class="article-card-content">
+            <span class="article-category">Artificial intelligence</span>
+            <h2>A practical guide to responsible AI</h2>
+            <p>Explore the principles that help teams build useful AI tools with transparency, care, and accountability.</p>
+            <p class="article-meta">7 min read</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card-image">
+            <img src="{% static 'images/myphoto.jpg' %}" alt="A connected digital network" loading="lazy">
+          </div>
+          <div class="article-card-content">
+            <span class="article-category">Cloud computing</span>
+            <h2>Making sense of modern cloud architecture</h2>
+            <p>A clear introduction to scalable systems, cloud-native design, and the trade-offs behind infrastructure choices.</p>
+            <p class="article-meta">9 min read</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card-image">
+            <img src="{% static 'images/myphoto.jpg' %}" alt="Digital security concept" loading="lazy">
+          </div>
+          <div class="article-card-content">
+            <span class="article-category">Cybersecurity</span>
+            <h2>Everyday security habits that matter</h2>
+            <p>Simple, effective ways to strengthen your digital routines and keep personal information safer online.</p>
+            <p class="article-meta">5 min read</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card-image">
+            <img src="{% static 'images/myphoto.jpg' %}" alt="Software development workspace" loading="lazy">
+          </div>
+          <div class="article-card-content">
+            <span class="article-category">Software engineering</span>
+            <h2>The craft of building maintainable software</h2>
+            <p>Learn how thoughtful architecture, readable code, and steady feedback help projects thrive over time.</p>
+            <p class="article-meta">8 min read</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {% now "Y" %} ByteStream. Technology, decoded.</p>
+  </footer>
+</body>
+</html>

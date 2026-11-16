@@ -1,0 +1,84 @@
+{% load static %}
+{% url 'articles' as articles_url %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ByteStream: sharp perspectives on technology, innovation, and the ideas shaping tomorrow.">
+  <title>ByteStream | Tech, decoded</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="{% url 'home' %}" aria-label="ByteStream home">Byte<span>Stream</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}" aria-current="page">Home</a></li>
+          <li><a href="{{ articles_url|default:'#trending' }}">Articles</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="cover-title">
+      <div class="hero-content">
+        <span class="eyebrow">The ByteStream cover story</span>
+        <h1 id="cover-title">The next wave of technology starts here.</h1>
+        <p>From breakthroughs in AI to the people building a more connected future, explore the ideas changing how we live and work.</p>
+        <a class="button" href="{{ articles_url|default:'#trending' }}">Explore the latest</a>
+      </div>
+      <div class="hero-image">
+        <img src="{% static 'images/myphoto.jpg' %}" alt="Featured ByteStream cover story">
+      </div>
+    </section>
+
+    <section class="section container" id="trending" aria-labelledby="trending-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Ideas worth your time</span>
+          <h2 id="trending-title">Trending stories</h2>
+        </div>
+        <a class="button" href="{{ articles_url|default:'#trending' }}">View all articles</a>
+      </div>
+
+      <div class="article-grid">
+        <article class="article-card">
+          <div class="article-card-content">
+            <span class="article-category">Artificial intelligence</span>
+            <h3><a href="{{ articles_url|default:'#trending' }}">Beyond the hype: how AI is reshaping everyday work</a></h3>
+            <p>A closer look at the practical tools and thoughtful teams bringing machine learning into the workplace.</p>
+            <p class="article-meta">6 min read</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card-content">
+            <span class="article-category">Future tech</span>
+            <h3><a href="{{ articles_url|default:'#trending' }}">The small innovations making a big difference</a></h3>
+            <p>Meet the emerging technologies quietly solving real-world challenges in surprising ways.</p>
+            <p class="article-meta">4 min read</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card-content">
+            <span class="article-category">Digital culture</span>
+            <h3><a href="{{ articles_url|default:'#trending' }}">Building a healthier relationship with our devices</a></h3>
+            <p>Designers and researchers share how more considered digital experiences can put people first.</p>
+            <p class="article-meta">5 min read</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {% now "Y" %} ByteStream. Technology, decoded.</p>
+  </footer>
+</body>
+</html>

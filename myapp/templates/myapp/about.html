@@ -1,0 +1,80 @@
+{% load static %}
+{% url 'articles' as articles_url %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about ByteStream's mission to make engineering knowledge insightful, open, and accessible.">
+  <title>About | ByteStream</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="{% url 'home' %}" aria-label="ByteStream home">Byte<span>Stream</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{{ articles_url|default:'#' }}">Articles</a></li>
+          <li><a href="{% url 'about' %}" aria-current="page">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="mission-title">
+      <div class="hero-content">
+        <span class="eyebrow">About ByteStream</span>
+        <h1 id="mission-title">Engineering ideas, made clear.</h1>
+        <p>ByteStream is an independent engineering publication built to make complex technology understandable and useful. We go beyond the headlines to explore how systems work, why design choices matter, and what engineers can learn from the people building the future.</p>
+        <p>Our mission is to share rigorous, thoughtful writing that helps curious readers deepen their craft and make better-informed decisions.</p>
+      </div>
+      <div class="hero-image">
+        <img src="{% static 'images/myphoto.jpg' %}" alt="The people and ideas behind ByteStream">
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="values-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">What guides us</span>
+          <h2 id="values-title">Our core values</h2>
+        </div>
+      </div>
+
+      <div class="article-grid">
+        <article class="article-card">
+          <div class="article-card-content">
+            <span class="article-category">01 / Understand</span>
+            <h3>Technical depth</h3>
+            <p>We look beneath the surface, bringing context, clear explanations, and respect for the details that make technology work.</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card-content">
+            <span class="article-category">02 / Share</span>
+            <h3>Open knowledge</h3>
+            <p>Useful engineering knowledge should be accessible. We welcome diverse perspectives and make room for ideas to be shared openly.</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card-content">
+            <span class="article-category">03 / Improve</span>
+            <h3>Continuous growth</h3>
+            <p>Technology keeps changing, and so do we. We stay curious, learn from experience, and keep improving our understanding.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {% now "Y" %} ByteStream. Technology, decoded.</p>
+  </footer>
+</body>
+</html>

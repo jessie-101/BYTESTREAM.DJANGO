@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local SQLite database
+db.sqlite3
+
+# Environment variables / secrets
+.env
+
+# Media & static build files
+media/
+staticfiles/
+
+# IDE folders
+.vscode/
+.idea/
